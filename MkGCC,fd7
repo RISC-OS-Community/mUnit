@@ -1,0 +1,34 @@
+| Generic Library builder for GCC on RISC OS
+| by Paolo Fabio Zaino
+
+echo ++++++++++++++++++++++++
+echo ++ Building using GCC ++
+echo ++++++++++++++++++++++++
+
+Set Build$Root <Obey$Dir>
+
+WimpSlot -min 16384K
+
+echo ---------------------
+echo Building the Library:
+echo ---------------------
+
+Dir <Build$Root>.src
+make all THROWBACK=-throwback -f MakeFileGCC
+
+echo
+echo ---------------------
+echo
+
+echo ---------------------
+echo Building Tests:
+echo ---------------------
+
+Dir <Build$Root>.tests
+make all THROWBACK=-throwback -f MakeFileGCC
+
+echo
+echo ---------------------
+echo
+
+Dir <Build$Root>

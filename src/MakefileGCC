@@ -1,0 +1,102 @@
+# Using µnit is very simple; just include the header and add the C
+# file to your sources.  That said, here is a simple Makefile to build
+# the example.
+
+APPDIR_NAME=!LibmUnit
+SRCF=munit
+LIB_NAME:=munit
+LIB_OBJ:=$(LIB_NAME).o
+LIB_CSTD:=99
+LIB_SOVR:=1
+LIB_VERS:=$(LIB_SOVR).0.0
+CFLAGS:=-mthrowback -Wall -Wextra -pedantic -ansi
+AGGRESSIVE_WARNINGS=n
+OPENMP:=n
+ASAN:=n
+UBSAN:=n
+EXTENSION:=
+TEST_ENV:=
+AGGRESSIVE_WARNINGS=n
+
+#######################################################################
+
+CC=gcc
+OBJ=o
+
+ifneq ($(SANITIZER),)
+	CFLAGS+=-fsanitize=$(SANITIZER)
+endif
+
+# Process Source file names:
+OSRC:=$(sort $(SRCF))
+SRCFR:=$(patsubst %, c.%, $(OSRC))
+OBJF:=$(patsubst %, o.%, $(OSRC))
+ST_OBJF:=$(OBJF)
+SH_OBJF:=$(OBJF)
+
+# Uncomment for debugging this Makefile:
+#$(info -- $(OSRC) --)
+#$(info ++ $(SRCFR) ++)
+#$(info -- $(OBJF) --)
+
+# Determine Static and Shared Lib name and options:
+SH_EXT=so
+ST_EXT=a
+
+LIBVER_ROFMT:=$(subst .,/,$(LIB_VERS))
+
+LIBST:=lib$(LIB_NAME)/$(ST_EXT)
+LIBSH:=lib$(LIB_NAME).$(SH_EXT).$(LIB_VERS)
+LIBSH_RO:=lib$(LIB_NAME)/$(SH_EXT)/$(LIB_VERS)
+LIBSH_FRO:=lib$(LIB_NAME)/$(SH_EXT)/$(LIBVER_ROFMT)
+LIBSH_SO:=lib$(LIB_NAME).$(SH_EXT).$(LIB_SOVR)
+LIBSH_SORO:=lib$(LIB_NAME)/$(SH_EXT)/$(LIB_SOVR)
+LIBSH_VER:=$(LIBSH)/$(LIB_SOVR)
+LIBSH_VERS:=$(LIBSH)/$(LIB_VERS)
+LNSRC:=lib$(LIB_NAME).$(SH_EXT).$(LIB_SOVR)
+
+CFLAGS       += -std=c$(LIB_CSTD)
+SH_CFLAGS    :=-shared $(CFLAGS)
+SH_EXTRAFLAGS:=-Wl,-soname=lib$(LIB_NAME).$(SH_EXT).$(LIB_SOVR)
+ST_CFLAGS    :=-static $(CFLAGS)
+ST_EXTRAFLAGS:=
+
+#######################################################################
+
+.PHONY:$(OBJ)
+$(OBJ):
+	cdir @.$@
+
+$(ST_OBJF): $(SRCFR)
+	$(info Building standard Objects for Static Linking)
+	$(CC) $(ST_CFLAGS) -o $@ -c $< $(ST_EXTRAFLAGS)
+
+$(LIBST): $(ST_OBJF)
+	$(info Building Static Library)
+	ar rcs @.$@ $(OBJF)
+	IfThere @.lib$(LIB_NAME)/a Then copy @.lib$(LIB_NAME)/a @.^.$(APPDIR_NAME).a.lib$(LIB_NAME) ~C N F
+
+$(LIBSH): $(SRCFR)
+	$(info Building standard Objects for Dynamic Linking)
+	$(CC) $(SH_CFLAGS) -o $@ $< $(SH_EXTRAFLAGS) $(LDFLAGS)
+
+
+$(LIBSH_SO): $(LIBSH)
+	$(info Building Shared Library)
+	IfThere @.$(LIBSH_FRO) Then copy @.$(LIBSH_FRO) @.^.$(APPDIR_NAME).so.$(LIBSH_FRO) ~C N F
+#	IfThere @.$(LIBSH_FRO) Then ln -f -s $(LIBSH_SO) $(LIBSH_SORO)
+
+.PHONY:clean
+clean:
+	IfThere @.o.* Then Wipe @.o.* ~C F
+	IfThere @.$(LIBSH_FRO) Then Wipe @.$(LIBSH_FRO) ~C F
+	IfThere @.$(LIBST) Then Wipe @.$(LIBST) ~C F
+
+.PHONY:all static shared
+all: static shared
+	IfThere @.h.$(LIB_NAME) Then copy @.h.$(LIB_NAME) @.^.$(APPDIR_NAME).h.$(LIB_NAME) ~C N F
+	IfThere @.^.doc.!Help Then copy @.^.doc.!Help @.^.$(APPDIR_NAME).!Help ~C N F
+
+static: $(OBJ) $(LIBST)
+
+shared: $(LIBSH_SO)

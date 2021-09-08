@@ -1,0 +1,30 @@
+| Generic Library cleaner for GCC on RISC OS
+| by Paolo Fabio Zaino
+
+Set Build$Root <Obey$Dir>
+WimpSlot -min 16384k
+
+echo ---------------------
+echo Cleaning the Library:
+echo ---------------------
+
+Dir <Build$Root>.src
+make clean -f MakeFileGCC
+
+echo
+echo ---------------------
+echo
+
+echo ---------------------
+echo Cleaning Tests:
+echo ---------------------
+
+Dir <Build$Root>.tests
+make clean THROWBACK=-throwback -f MakeFileGCC
+
+echo
+echo ---------------------
+echo
+
+Dir <Build$Root>
+

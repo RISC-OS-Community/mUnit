@@ -1,0 +1,13 @@
+# Master Makefile
+
+TESTS:=01UTest001
+
+.PHONY:all clean $(TESTS)
+all: $(TESTS)
+	dir @.$<
+	make all -f MakefileGCC
+
+clean: $(TESTS)
+	dir @.$<
+	make clean -f MakefileGCC
+

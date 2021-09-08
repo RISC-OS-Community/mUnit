@@ -1,0 +1,32 @@
+| Generic Library cleaner for DDE on RISC OS
+| by Paolo Fabio Zaino
+
+Set Build$Root <Obey$Dir>
+WimpSlot -min 2048k
+
+echo ---------------------
+echo Cleaning the Library:
+echo ---------------------
+
+Dir <Build$Root>.src
+amu clean -f MakeFileDDE
+stripdepnd MakeFileDDE
+
+echo
+echo ---------------------
+echo
+
+echo ---------------------
+echo Cleaning Tests:
+echo ---------------------
+
+
+Dir <Build$Root>.tests
+amu clean THROWBACK=-throwback -f MakeFileDDE
+stripdepnd MakeFileDDE
+
+echo
+echo ---------------------
+echo
+
+Dir <Build$Root>

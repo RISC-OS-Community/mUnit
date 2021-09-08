@@ -1,0 +1,14 @@
+# Makefile for a generic lib
+
+# Name of the library:
+COMPONENT = munitlib
+CFLAGS+=-IUnixLib:include -JUnixLib: -D__GNUC__ -D__RISCOS_DDE -U__STDC_IEC_559_COMPLEX__ -U__STDC_ISO_10646__
+
+# This is a list of source/object files for the library:
+OBJS = munit
+
+include CLibrary
+
+LIBS = UnixLib:a.unixlib
+
+# Dynamic dependencies:
