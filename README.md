@@ -57,10 +57,11 @@ dependency to your project: `dependency('munit', fallback: ['munit', 'munit_dep'
 
 This is easy, just make sure your filer has seen where your copy of !GCC is located on your RISC OS system and then double click on the MkGCC file to build everything.
 
-#### Buildin gusing DDE
+#### Building using DDE
 
-To build with DDE you need to first instal !UnixLib and then also !UnixLib-Dev (you can find both on !Packman)
+To build with DDE you need to first instal !UnixLib and then also !UnixLib-Dev (you can find both on !Packman).
 
+Th ebuild in DDE is broken at the moment due issues between UnixLib and DDE.
 
 ## Documentation
 
