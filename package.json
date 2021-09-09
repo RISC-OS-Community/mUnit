@@ -1,0 +1,9 @@
+{
+  "name": "libmunit",
+  "version": "v1.0.0",
+  "repo": "RISC-OS-Community/mUnit",
+  "src": ["munit.c", "munit.h"],
+  "description": "This is a port to RISC OS of the mUnit C Unit testing library.",
+  "license": "MIT",
+  "keywords": ["test", "unit", "testing", "riscos", "risc-os", "C"]
+}
