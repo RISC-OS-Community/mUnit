@@ -1,0 +1,34 @@
+| Generic Library builder for DDE on RISC OS
+| by Paolo Fabio Zaino
+
+echo ++++++++++++++++++++++++
+echo ++ Building using DDE ++
+echo ++++++++++++++++++++++++
+
+Set Build$Root <Obey$Dir>
+
+WimpSlot -min 2048K
+
+echo ---------------------
+echo Building the Library:
+echo ---------------------
+
+Dir <Build$Root>.src
+amu all_libs THROWBACK=-throwback -f MakeFileDDE
+
+echo
+echo ---------------------
+echo
+
+echo ---------------------
+echo Building Tests:
+echo ---------------------
+
+Dir <Build$Root>.tests
+make all THROWBACK=-throwback -f MakeFileDDE
+
+echo
+echo ---------------------
+echo
+
+Dir <Build$Root>

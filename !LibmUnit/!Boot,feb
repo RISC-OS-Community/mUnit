@@ -1,0 +1,5 @@
+| Lib mUnit port to RISC OS
+| ported by Paolo Fabio Zaino 2021
+IconSprites <Obey$Dir>.!Sprites
+If "<LibmUnit$Dir>" = "" Then Set LibmUnit$Dir <Obey$Dir>
+Set LibmUnit$Path <LibmUnit$Dir>.

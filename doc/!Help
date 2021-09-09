@@ -1,0 +1,6 @@
+mUnit !Help File
+~~~~~~~~~~
+
+This is mUnit release 1.0.0 for RISC OS. It's a port of mUnit the latest (main branch 7 Sep 2021) created by Evan Nemerson.
+
+This RISC OS port was done by Paolo Fabio Zaino.
