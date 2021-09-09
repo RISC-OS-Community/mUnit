@@ -8,7 +8,7 @@ This simple framework allows to run C Unit Tests directly on RISC OS, which
 helps to speed up coding process. Hopefully it will be useful to many in the
 community.
 
-For more information on the original Ã‚Âµnit, see:
+For more information on the original µnit, see:
 [the µnit web site](https://nemequ.github.io/munit).
 
 ## Why a Port to RISC OS?
