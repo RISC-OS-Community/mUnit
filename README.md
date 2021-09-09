@@ -1,4 +1,4 @@
-# �nit
+# µnit
 
 This is a RISC OS port of µnit, which is a small but full-featured unit testing
 framework for C.  It has no dependencies (beyond libc), is permissively licensed
@@ -8,8 +8,8 @@ This simple framework allows to run C Unit Tests directly on RISC OS, which
 helps to speed up coding process. Hopefully it will be useful to many in the
 community.
 
-For more information on the original µnit, see:
-[the µnit web site](https://nemequ.github.io/munit).
+For more information on the original Âµnit, see:
+[the Âµnit web site](https://nemequ.github.io/munit).
 
 ## Why a Port to RISC OS?
 Simple, usual reason: RISC OS has a completely different File System than most modern OSes and deals with C/Headers and paths differently than other modern OSes, so pushing patches specifically for RISC OS to the original project is:
@@ -24,7 +24,7 @@ b) will cause issues that are just related to how RISC OS deals with files (C fi
 
 ## Features
 
-Features µnit currently includes include:
+Features Âµnit currently includes include:
 
  * Handy assertion macros which make for nice error messages.
  * Reproducible cross-platform random number generation, including
@@ -64,7 +64,7 @@ To build with DDE you need to first instal !UnixLib and then also !UnixLib-Dev (
 
 ## Documentation
 
-For the original µnit documantetion see: [the µnit web site](https://nemequ.github.io/munit).
+For the original Âµnit documantetion see: [the Âµnit web site](https://nemequ.github.io/munit).
 
 Additionally, there is a heavily-commented test file
 [example.c](./tests/example.c) in the repository.
