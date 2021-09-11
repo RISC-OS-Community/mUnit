@@ -1,0 +1,7 @@
+| Manual ELF Dynamic Libraries Installer
+| By Paolo Fabio Zaino
+
+| Not the best solution, but it helps!
+
+If "<SharedLibs$Path>" = "" Then Error Please locate !SahredLibs first, then run this script!
+copy <Obey$Dir>.so.* SharedLibs:lib.abi-2/0.*
