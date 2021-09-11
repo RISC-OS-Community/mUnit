@@ -91,6 +91,8 @@ clean:
 	IfThere @.o.* Then Wipe @.o.* ~C F
 	IfThere @.$(LIBSH_FRO) Then Wipe @.$(LIBSH_FRO) ~C F
 	IfThere @.$(LIBST) Then Wipe @.$(LIBST) ~C F
+	IfThere @.^.$(APPDIR_NAME).h.$(LIB_NAME) Then Wipe @.^.$(APPDIR_NAME).h.$(LIB_NAME) ~C F
+	 IfThere @.^.$(APPDIR_NAME).!Help Then Wipe @.^.$(APPDIR_NAME).!Help ~C F
 
 .PHONY:all static shared
 all: static shared
