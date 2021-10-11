@@ -59,13 +59,13 @@ This is easy, just make sure your filer has seen where your copy of !GCC is loca
 
 #### Building using DDE
 
-To build with DDE you need to first instal !UnixLib and then also !UnixLib-Dev (you can find both on !Packman).
+To build with DDE you need to install both !UnixLib and also !UnixLib-Dev (both can be found via !Packman).
 
-Th ebuild in DDE is broken at the moment due issues between UnixLib and DDE.
+The build in DDE is broken at the moment due issues between UnixLib and DDE.
 
 ## Documentation
 
-For the original µnit documantetion see: [the µnit web site](https://nemequ.github.io/munit).
+For the original µnit documentation see: [the µnit web site](https://nemequ.github.io/munit).
 
 Additionally, there is a heavily-commented test file
 [example.c](./tests/example.c) in the repository.
