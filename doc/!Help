@@ -1,14 +1,14 @@
 mUnit !Help File
 ~~~~~~~~~~
 
-This is mUnit release 1.0.0 for RISC OS. It's a port of mUnit the latest (main branch 7 Sep 2021) created by Evan Nemerson.
+This is mUnit release 1.0.0 for RISC OS. It's a port of mUnit 0.4.1 (from main branch as at 7 Sep 2021) created by Evan Nemerson.
 
 This RISC OS port was done by Paolo Fabio Zaino.
 
-For examples of how to use this Library please have a look into !LibmUnit.Examples
+Examples of how to use this Library can be found in !LibmUnit.Examples
 
 - Library structure -
-This cirectory has the following structure:
+This directory has the following structure:
 
 !LibmUnit
   |
@@ -34,7 +34,7 @@ gcc blah blah -c -o $@.o myapp.c -ILibmUnit:
 gcc blah blah -o myapp ./myapp.o LibmUnit:a/Libmunit
 
 To compile your code using the dynamic version of the library use:
-1) First copy the content of the so directory in !SharedLibs.lib.abi-2/0. To make this operation easier, you ccan use the !InstallSOs script inside the !LibmUnit directory.
+1) First copy the content of the so directory in !SharedLibs.lib.abi-2/0. To make this operation easier, you can use the !InstallSOs script inside the !LibmUnit directory.
 2) To be safe reload the SOManager
 3) Compile your code using:
 gcc blah blah  -Wl,-s -LDSOLib:lib.abi-2/0 -ILibmUnit:
