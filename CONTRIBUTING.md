@@ -74,7 +74,6 @@ Please make sure you have a github account before you start. Also we recommend t
 ## How to join this community
 To provide fixes and improvement to code, you do not necessarily need to join, however if you want to help by reviewing code or other more involved tasks or just be part of one of the team to quickly pick an issue to work on, you'll need to join the community.
 
-
 To join, make sure you have your pre-requisites in place and then use the link [here](https://paolozaino.wordpress.com/contact/) to let us know you want to join.
 
 In the request specify your github account username and which teams you would like to join between:
@@ -125,6 +124,8 @@ In general you'd want to:
 # Coding Style for C Developers
 
 One of the best and most complete C Coding style guide is the Linux Kernel C Coding Style Guide. So, for all general C related coding you should follow such set of rules (learning it can also help you a lot in your Software Engineering career), here is the Linux Coding Style guide for you: [Linux Coding Style Guide](https://www.kernel.org/doc/html/v5.10/process/coding-style.html).
+
+If you are not an experienced C developer and need an easier to read coding manual before getting into the Linux coding style, we recommend to get copy of "The Elements Of C Programming Style" by Jay Ranade and Alan Nash, it's a very good introduction to good C coding style practices and goes from zero to competent C developer on the matter of coding style elements (it doesn't teach you C!).
 
 Given that RISC OS is not linux and has its own ToolBox you shall consider all colliding rules to be superseded by the corresponding rule in the RISC OS Style Guide, here is a link to how to obtain it: [RISC OS Style Guide](https://www.riscosopen.org/wiki/documentation/show/Style%20Guide)
 
