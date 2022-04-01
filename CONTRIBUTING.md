@@ -74,6 +74,7 @@ Please make sure you have a github account before you start. Also we recommend t
 ## How to join this community
 To provide fixes and improvement to code, you do not necessarily need to join, however if you want to help by reviewing code or other more involved tasks or just be part of one of the team to quickly pick an issue to work on, you'll need to join the community.
 
+
 To join, make sure you have your pre-requisites in place and then use the link [here](https://paolozaino.wordpress.com/contact/) to let us know you want to join.
 
 In the request specify your github account username and which teams you would like to join between:
